@@ -5,7 +5,7 @@ function FileSystemUtils() {
 }
 
 FileSystemUtils.prototype.storeFile = function(fileName) {
-  const file = fs.createWriteStream('./data_input/' + fileName + '.txt');
+  const file = fs.createWriteStream(this.getFilePath(fileName));
   return file;
 };
 
