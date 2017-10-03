@@ -34,7 +34,6 @@ describe('FileSystemUtils', function() {
   describe('#readFileToArray', function() {
     it('returns an array of words', function() {
       data = fileSystemUtils.readFileToArray('testFile');
-      console.log(data);
       expect(data).to.deep.equal([ 'this', 'is', 'just', 'for', 'testing', 'purposes' ]);
     });
   });
