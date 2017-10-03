@@ -1,0 +1,24 @@
+{
+  "name": "counter-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "fileReader.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarySalemme/counter-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarySalemme/counter-app/issues"
+  },
+  "homepage": "https://github.com/MarySalemme/counter-app#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "http": "0.0.0",
+    "mocha": "^4.0.0"
+  }
+}
