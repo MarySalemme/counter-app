@@ -16,7 +16,6 @@ describe('WordCounter', function() {
     expect(counter.words).to.be.instanceOf(Object);
   });
 
-
   it('is initialised with an instance of FileSystemUtils', function() {
     expect(counter.fsu).to.be.instanceOf(FileSystemUtils);
   });
@@ -35,5 +34,25 @@ describe('WordCounter', function() {
     });
   });
 
-  
+  describe('#addPrimeBoolean', function() {
+    it('returns an object containing the count and the "prime" boolean value ', function() {
+      countAndBoolObj = counter.addPrimeBoolean(2);
+      expect(countAndBoolObj).to.deep.equal({ count: 2, prime: true });
+    });
+  });
+
+  describe('#mapWithPrime', function() {
+    it('mutates the countedWords object to add the prime boolean value', function() {
+      counter.mapWithPrime();
+      expect(counter.countedWords).to.deep.equal({ this: { count: 4, prime: false },
+                                                          is: { count: 2, prime: true },
+                                                          just: { count: 1, prime: false },
+                                                          for: { count: 1, prime: false },
+                                                          testing: { count: 4, prime: false },
+                                                          purposes: { count: 1, prime: false } });
+    });
+  });
+
+
+
 });
