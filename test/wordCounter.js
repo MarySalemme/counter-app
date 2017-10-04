@@ -1,7 +1,6 @@
 var chai = require('chai');
 var expect = chai.expect;
 var WordCounter = require('../src/wordCounter');
-var FileSystemUtils = require('../src/fileSystemUtils');
 
 describe('WordCounter', function() {
   counter = new WordCounter();
@@ -14,10 +13,6 @@ describe('WordCounter', function() {
   it('is initialised with an empty object', function() {
     expect(counter.countedWords).to.be.empty;
     expect(counter.words).to.be.instanceOf(Object);
-  });
-
-  it('is initialised with an instance of FileSystemUtils', function() {
-    expect(counter.fsu).to.be.instanceOf(FileSystemUtils);
   });
 
   describe('#setWords', function() {

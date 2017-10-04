@@ -1,21 +1,19 @@
 var fs = require('fs');
 
-function FileSystemUtils() {
-
-}
-
-FileSystemUtils.prototype.storeFile = function(fileName) {
-  const file = fs.createWriteStream(this.getFilePath(fileName));
+function storeFile(fileName) {
+  const file = fs.createWriteStream(getFilePath(fileName));
   return file;
 };
 
-FileSystemUtils.prototype.getFilePath = function(fileName) {
+function getFilePath(fileName) {
   return './data_input/' + fileName + '.txt'
 };
 
-FileSystemUtils.prototype.readFileToArray = function(fileName) {
-  data = fs.readFileSync(this.getFilePath(fileName), "utf8");
+function readFileToArray(fileName) {
+  data = fs.readFileSync(getFilePath(fileName), "utf8");
   return data.toLowerCase().replace(/[^\w\s]|_/g, '').split(/\s+/).filter(Boolean);
 };
 
-module.exports = FileSystemUtils;
+module.exports.storeFile = storeFile;
+module.exports.getFilePath = getFilePath;
+module.exports.readFileToArray = readFileToArray;

@@ -4,36 +4,35 @@ chai.use(spies);
 var expect = chai.expect;
 var fs = require('fs');
 var mock = require('mock-fs');
-var FileSystemUtils = require('../src/fileSystemUtils');
+const {storeFile, getFilePath, readFileToArray} = require('../src/fileSystemUtils');
 
 describe('FileSystemUtils', function() {
-  fileSystemUtils = new FileSystemUtils();
 
   before(function() {
     mock({
       'path/to/file.txt': 'file content here'
     });
-    spy = chai.spy(fs.createWriteStream);
+    createWriteStreamSpy = chai.spy(fs.createWriteStream);
   });
 
   describe('#storeFile', function() {
     it('saves the file in the "data_input" folder', function() {
-      fileSystemUtils.storeFile();
-      expect(spy).to.have.been.called;
+      storeFile(mock);
+      expect(createWriteStreamSpy).to.have.been.called;
       mock.restore();
     });
   });
 
   describe('#getFilePath', function() {
     it('returns the complete file path', function() {
-      filePath = fileSystemUtils.getFilePath('testFile');
+      filePath = getFilePath('testFile')
       expect(filePath).to.equal('./data_input/testFile.txt');
     });
   });
 
   describe('#readFileToArray', function() {
     it('returns an array of words', function() {
-      data = fileSystemUtils.readFileToArray('testFile');
+      data = readFileToArray('testFile');
       expect(data).to.deep.equal([ 'this', 'is', 'just', 'for', 'testing', 'purposes', 'this', 'this', 'testing', 'this', 'testing', 'testing', 'is' ]);
     });
   });

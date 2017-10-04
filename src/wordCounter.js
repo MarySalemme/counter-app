@@ -1,14 +1,13 @@
-var FileSystemUtils = require('./fileSystemUtils');
+const {storeFile, getFilePath, readFileToArray} = require('../src/fileSystemUtils');
 var isPrime = require('./primeChecker');
 
 function WordCounter() {
   this.words = [];
   this.countedWords = {};
-  this.fsu = new FileSystemUtils();
 }
 
 WordCounter.prototype.setWords = function(fileName) {
-  this.words = this.fsu.readFileToArray(fileName);
+  this.words = readFileToArray(fileName);
 };
 
 WordCounter.prototype.run = function() {

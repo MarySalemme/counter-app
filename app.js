@@ -1,12 +1,13 @@
 const http = require("http");
 var fs = require('fs');
+const { storeFile } = require('./src/fileSystemUtils');
 var WordCounter = require('./src/wordCounter');
-var counter = new WordCounter();
 
 function runApp(url, fileName) {
   http.get(url, response => {
-    var fileWriteStream = counter.fsu.storeFile(fileName);
+    var fileWriteStream = storeFile(fileName);
     fileWriteStream.on('finish', function() {
+      var counter = new WordCounter();
       counter.setWords(fileName);
       counter.run();
       counter.mapWithPrime();
