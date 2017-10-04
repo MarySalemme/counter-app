@@ -1,0 +1,26 @@
+{
+    "this": {
+        "count": 4,
+        "prime": false
+    },
+    "is": {
+        "count": 2,
+        "prime": true
+    },
+    "just": {
+        "count": 1,
+        "prime": false
+    },
+    "for": {
+        "count": 1,
+        "prime": false
+    },
+    "testing": {
+        "count": 4,
+        "prime": false
+    },
+    "purposes": {
+        "count": 1,
+        "prime": false
+    }
+}
