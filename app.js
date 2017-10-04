@@ -11,7 +11,7 @@ function runApp(url, fileName) {
       counter.setWords(fileName);
       counter.run();
       counter.mapWithPrime();
-      fs.writeFileSync('./data_output/' + fileName, JSON.stringify(counter.countedWords, null, 4));
+      fs.writeFileSync('./data_output/' + fileName + '.txt', JSON.stringify(counter.countedWords, null, 4));
     });
     response.pipe(fileWriteStream);
   });
