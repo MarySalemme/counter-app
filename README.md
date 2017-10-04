@@ -9,3 +9,8 @@ An application that outputs the individual words that appear in a book, and how 
 - ``$ npm test`` to run the tests
 - ``$ node app.js`` to run the App
 - to use the Counter on a different book, open the ``app.js`` file and change the url and name of the book on line 19.
+
+### Improvements to be made
+- Implementing a method to create the input/output folder
+- Not having the file extension hard coded in the functions but passing it as an argument
+- Known bugs: words separated by a dash or apostrophe become one long word (engine-burglar => engineburglar)
